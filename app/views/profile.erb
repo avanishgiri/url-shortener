@@ -1,0 +1,11 @@
+<h2> <%= @display_user.name %> </h2>
+
+<ul>
+  <% @display_user.urls.each do |url| %>
+    <li> <a href=<%= "/" + url.shortened %>><%= url.url %></a>
+    <% if @show_clicks %>
+    <%= ": number of clicks: #{url.counter}" %> <% end %>
+  </li>
+   <% end %> 
+</ul>
+<a href="/">Back Home</a>

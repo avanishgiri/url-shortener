@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Welcome to Url Shortener</h1>
+
+  <form action="/" method="post" name="url">
+    <input type="text" name="url" placeholder="Put your link here">
+    <input type="submit" value="Generate!">
+  </form>
+
+  <div class="result">
+    <% if @user_return %>
+     <p>Your shortened link:</p>
+      <input value=<%= "/" + @user_return %>>
+    <% end %>
+  </div>
+<% if @user %><%= "How are you today #{@user.name}?" %>
+    <a href=<%= "/users/" + @user.id.to_s %>>Profile</a>
+    <a href="/logout">Log out</a>
+  <% else %>
+  <h2>Log in</h2>
+  <form action="/login" method="post">
+    <input type="text" name="name" placeholder="username">
+    <input type="text" name="password" placeholder="password">
+    <input type="submit" value="enter!">
+  </form>
+    <form action="/create" method="get">
+      <input type="submit" value="Sign up">
+    </form>
+  <% end %>
+</div>
